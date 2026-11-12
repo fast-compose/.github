@@ -11,12 +11,14 @@ Write Compose code and watch it render in milliseconds, on Android, iOS, desktop
 [**🌐 Website**](https://fast-compose.github.io) &nbsp;·&nbsp;
 [**▶️ Playground**](https://fast-compose.github.io/playground/) &nbsp;·&nbsp;
 [**📦 Engine**](https://github.com/fast-compose/fast-compose) &nbsp;·&nbsp;
-[**🧩 Plugin**](https://plugins.jetbrains.com/plugin/35776-fast-compose-preview) &nbsp;·&nbsp;
+[**🧩 Android Studio**](https://plugins.jetbrains.com/plugin/35776-fast-compose-preview) &nbsp;·&nbsp;
+[**💠 VS Code**](https://marketplace.visualstudio.com/items?itemName=fast-compose.fast-compose-preview) &nbsp;·&nbsp;
 [**📜 Compose Script**](https://github.com/fast-compose/compose-script) &nbsp;·&nbsp;
 [**⌨️ CLI**](https://github.com/fast-compose/compose-cli)
 
 [![Maven Central](https://img.shields.io/maven-central/v/io.github.fast-compose/fast-compose?label=Maven%20Central&color=6E56CF)](https://central.sonatype.com/namespace/io.github.fast-compose)
 [![JetBrains Marketplace](https://img.shields.io/jetbrains/plugin/v/35776?label=Marketplace&logo=jetbrains&color=6E56CF)](https://plugins.jetbrains.com/plugin/35776-fast-compose-preview)
+[![VS Code Marketplace](https://vsmarketplacebadges.dev/version/fast-compose.fast-compose-preview.svg?label=VS%20Code)](https://marketplace.visualstudio.com/items?itemName=fast-compose.fast-compose-preview)
 [![npm](https://img.shields.io/npm/v/@fast-compose/compose-script?label=npm&logo=npm&color=6E56CF)](https://www.npmjs.com/package/@fast-compose/compose-script)
 ![Kotlin Multiplatform](https://img.shields.io/badge/Kotlin-Multiplatform-7F52FF?logo=kotlin&logoColor=white)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://github.com/fast-compose/fast-compose/blob/main/LICENSE)
@@ -86,9 +88,6 @@ I don't know. But I remembered this quote:
 
 On October 28th, I recognized one of those ideas and started implementing it in pure Kotlin as a KMP project.
 
-The results were amazing! I was so satisfied with Claude Code that I even rewarded it with a mention in the initial
-commits as a co-author. I don't usually do that! 😂
-
 <div align="center">
 
 ## ✨ Great ideas inspire even greater ideas.
@@ -109,7 +108,7 @@ instantly on their devices. Pretty cool!
 
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/fast-compose/playground/main/docs/images/showcase.png" width="100%" alt="Fast Compose Playground on Android, desktop and the web">
+<img src="https://raw.githubusercontent.com/fast-compose/.github/main/profile/images/playground.png" width="100%" alt="Fast Compose Playground in the browser: Compose code on the left, a live chart preview on the right">
 
 [**▶️ Open in the browser**](https://fast-compose.github.io/playground/) &nbsp;·&nbsp;
 [**🤖 Google Play**](https://play.google.com/store/apps/details?id=ma7moud3ly.fast.compose.playground) &nbsp;·&nbsp;
@@ -186,6 +185,18 @@ pushed me to release **v0.2.0** and continue improving it.
 > functions.
 
 📦 [**fast-compose/intellij-plugin**](https://github.com/fast-compose/intellij-plugin)
+
+### <img src="https://raw.githubusercontent.com/fast-compose/vscode-extension/main/docs/images/logo.png" height="36" align="absmiddle" alt=""> VS Code Extension
+
+The same instant previews in **VS Code**, running on the engine's WASM build. No JVM, no Gradle, no Android Studio.
+
+[![VS Code Marketplace](https://vsmarketplacebadges.dev/version/fast-compose.fast-compose-preview.svg?label=VS%20Code%20Marketplace)](https://marketplace.visualstudio.com/items?itemName=fast-compose.fast-compose-preview)
+[![Open VSX](https://img.shields.io/open-vsx/v/fast-compose/fast-compose-preview?label=Open%20VSX&color=6E56CF)](https://open-vsx.org/extension/fast-compose/fast-compose-preview)
+
+> **Extensions** (Ctrl+Shift+X), search for **Fast Compose Preview**, then click **Preview** above a `@Preview`
+> function.
+
+📦 [**fast-compose/vscode-extension**](https://github.com/fast-compose/vscode-extension)
 
 ### <img src="https://raw.githubusercontent.com/fast-compose/compose-cli/main/docs/images/logo.png" height="36" align="absmiddle" alt=""> Fast Compose CLI
 
