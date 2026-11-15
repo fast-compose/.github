@@ -20,6 +20,7 @@ Write Compose code and watch it render in milliseconds, on Android, iOS, desktop
 [![JetBrains Marketplace](https://img.shields.io/jetbrains/plugin/v/35776?label=Marketplace&logo=jetbrains&color=6E56CF)](https://plugins.jetbrains.com/plugin/35776-fast-compose-preview)
 [![VS Code Marketplace](https://vsmarketplacebadges.dev/version/fast-compose.fast-compose-preview.svg?label=VS%20Code)](https://marketplace.visualstudio.com/items?itemName=fast-compose.fast-compose-preview)
 [![npm](https://img.shields.io/npm/v/@fast-compose/compose-script?label=npm&logo=npm&color=6E56CF)](https://www.npmjs.com/package/@fast-compose/compose-script)
+[![CLI](https://img.shields.io/github/v/release/fast-compose/compose-cli?label=CLI&color=6E56CF)](https://github.com/fast-compose/compose-cli/releases)
 ![Kotlin Multiplatform](https://img.shields.io/badge/Kotlin-Multiplatform-7F52FF?logo=kotlin&logoColor=white)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://github.com/fast-compose/fast-compose/blob/main/LICENSE)
 
@@ -204,6 +205,25 @@ Finally, while surfing LinkedIn, I came across some enthusiastic developers disc
 it to render Compose UI directly from the command line.
 
 **Heeeh, guys! Fast Compose can do it better and instantly!** 
+
+[![Release](https://img.shields.io/github/v/release/fast-compose/compose-cli?label=Release&color=6E56CF)](https://github.com/fast-compose/compose-cli/releases)
+
+The **Fast Compose CLI** checks and renders `@Preview` functions in seconds, with no Gradle build:
+
+```bash
+fast-compose check -r app/src
+fast-compose render HomeScreen.kt --dark --size tablet -o previews
+```
+
+And it's an MCP server too, so AI agents can check the Compose code they write and see it rendered:
+
+```bash
+claude mcp add --scope user fast-compose -- fast-compose mcp
+```
+
+> Download the zip for Windows, macOS or Linux from the
+> [**releases**](https://github.com/fast-compose/compose-cli/releases). It brings its own Java runtime, so there's
+> nothing else to install.
 
 📦 [**fast-compose/compose-cli**](https://github.com/fast-compose/compose-cli)
 
