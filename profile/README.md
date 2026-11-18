@@ -30,55 +30,49 @@ Write Compose code and watch it render in milliseconds, on Android, iOS, desktop
 
 <div align="center">
 
-# HISTORY AND PHILOSOPHY
+# THE STORY
 
 </div>
 
-🎆 Remember, Remember the Fifth of November! That was the day I introduced the **Fast Compose** project to the world.
+🎆 Remember, remember the Fifth of November! That's the day I introduced **Fast Compose** to the world.
 
-The idea started with the very first line I wrote in Compose! No Instant Preview like XML. I had to build the entire
-app just to see my changes. Every little UI modification made the preview outdated and required another rebuild.
+The idea started with the very first line of Compose I ever wrote. With XML, the preview was instant. With Compose, I
+had to build the whole app to see my changes, and every small UI tweak made the preview outdated again.
 
-JetBrains introduced a Hot Reload plugin. Sounds good, but that's not what Android and KMP developers deserve! They
-deserve to write Compose and see their UI instantly, just like they do when writing HTML.
+JetBrains' Compose Hot Reload is a big step forward, but I believe Android and KMP developers deserve even more: write
+Compose and see the UI instantly, just like web developers see their HTML.
 
 ### 📅 October 28, 2026
 
 The idea for this project started on October 28, 2026. I came across [DartPad](https://dartpad.dev/), and that made me
-anxious. **I hate Flutter!** I see it everywhere in the browser world! Flutter previews are embedded right into the
+jealous. **I hate Flutter!** I see it everywhere in the browser world! Flutter previews are embedded right into the
 [Flutter documentation](https://docs.flutter.dev/ui), where you can compile and see a preview in just a few seconds.
 
 **But we, the great Compose developers, don't have that!**
 
 Before November 5th, all we had was Kotlin Playground. It could run Compose code by compiling it on a server and
-displaying the result as a preview. So slow, so primitive! That made me even more frustrated.
+displaying the result as a preview. Every change meant a round trip to the backend and seconds of waiting. That made me
+even more frustrated.
 
-I opened Claude and asked how we could run Compose previews directly inside the browser. Could we port the Kotlin
-Multiplatform plugin or the Hot Reload plugin to WASM?
+I asked Claude how we could run Compose previews directly in the browser. Could we port the Kotlin Multiplatform plugin
+or the Hot Reload plugin to WASM?
 
-The answers were disappointing. Compose relies heavily on the JVM and is stuck there! Even Compose Multiplatform
-Preview in Android Studio (before November 5th) couldn't work without the Android target because it relies on
-AndroidX tooling.
+The answers weren't encouraging. Compose tooling is deeply tied to the JVM. Even Compose Multiplatform previews in
+Android Studio needed an Android target, because they rely on AndroidX tooling.
 
-The proposed solution? Run the actual Kotlin compiler in the browser and build the app there!
-
-Imagine downloading hundreds of megabytes and waiting several seconds just to build an app! That's absolutely what I
-was trying to avoid.
+The usual suggestion? Run the Kotlin compiler in the browser and build the app there. That means downloading hundreds
+of megabytes and waiting seconds for every build: exactly what I wanted to avoid.
 
 ### 💡 The game changer
 
-Until Claude suggested what he called **"A real game changer": a Compose Interpreter!**
+Then Claude suggested what it called **"a real game changer": a Compose interpreter!**
 
-What the hell, man? Are we going to reinvent the wheel? Actually, we won't! But if you really want to do that and have enough tokens, you can give it a try.
+Reinventing the wheel? Not at all. We can't compile Compose code at runtime, but we don't need to. The interpreter reads
+the code and calls the real Compose APIs directly, rendering dynamic Compose UI within milliseconds.
 
-We simply can't compile Compose code at runtime, but we can make the runtime call the Compose APIs directly to render
-dynamic Compose UI within milliseconds.
+To see how it works, check [**fast-compose/fast-compose**](https://github.com/fast-compose/fast-compose)!
 
-If you haven't got the idea yet, check [**fast-compose/fast-compose**](https://github.com/fast-compose/fast-compose)!
-
-So, why didn't Google or JetBrains build this interpreter?
-
-I don't know. But I remembered this quote:
+Why hadn't anyone built this before? I don't know. But I remembered this quote:
 
 <div align="center">
 
@@ -87,7 +81,8 @@ I don't know. But I remembered this quote:
 
 </div>
 
-On October 28th, I recognized one of those ideas and started implementing it in pure Kotlin as a KMP project.
+On October 28th, I recognized one of those ideas and started building it in pure Kotlin as a Kotlin Multiplatform
+project.
 
 <div align="center">
 
@@ -95,12 +90,12 @@ On October 28th, I recognized one of those ideas and started implementing it in 
 
 </div>
 
-I started thinking: We now have an instant Compose runtime, implemented entirely in Kotlin and supporting KMP. Why
-stop there?
+Once we had an instant Compose runtime, written entirely in Kotlin and running on every KMP target, the next question
+was obvious: why stop there?
 
 ---
 
-### <img src="https://raw.githubusercontent.com/fast-compose/playground/main/docs/images/logo.png" height="36" align="absmiddle" alt=""> Fast Compose Playground
+### <img src="https://raw.githubusercontent.com/fast-compose/playground/main/docs/images/logo.png" height="36" align="absmiddle" alt=""> [Fast Compose Playground](https://github.com/fast-compose/playground)
 
 The original vision was a web-first playground, designed to be a serious competitor to Kotlin Playground.
 
@@ -118,7 +113,7 @@ instantly on their devices. Pretty cool!
 
 </div>
 
-### <img src="https://raw.githubusercontent.com/fast-compose/fast-compose/main/docs/images/logo.png" height="36" align="absmiddle" alt=""> Fast Compose Preview
+### <img src="https://raw.githubusercontent.com/fast-compose/fast-compose/main/docs/images/logo.png" height="36" align="absmiddle" alt=""> [Fast Compose Preview](https://github.com/fast-compose/fast-compose)
 
 The engine could also be exposed as a public library
 [![Maven Central](https://img.shields.io/maven-central/v/io.github.fast-compose/fast-compose?label=Maven%20Central&color=6E56CF)](https://central.sonatype.com/artifact/io.github.fast-compose/fast-compose)
@@ -142,9 +137,7 @@ val code = rememberComposeCode("""
 FastComposePreview(code)
 ```
 
-📦 [**fast-compose/fast-compose**](https://github.com/fast-compose/fast-compose)
-
-### <img src="https://raw.githubusercontent.com/fast-compose/compose-script/main/docs/images/logo.png" height="36" align="absmiddle" alt=""> Compose Script
+### <img src="https://raw.githubusercontent.com/fast-compose/compose-script/main/docs/images/logo.png" height="36" align="absmiddle" alt=""> [Compose Script](https://github.com/fast-compose/compose-script)
 
 Since the engine was already ported to WASM, we could build a small JavaScript bridge and use it to run Compose code
 directly inside static HTML pages!
@@ -166,28 +159,24 @@ That brilliant idea became **Compose Script**, something I'm really proud of.
 > The [**Fast Compose website**](https://fast-compose.github.io) is made with Fast Compose: the whole page is one
 > Compose app inside a single `<script type="text/compose-content">` tag.
 
-Try it live on CodePen: [Sound Wave](https://codepen.io/editor/ma7moud3ly/pen/01a191f5-6523-799c-81ed-a193e00bf1f2) ·
+Try it live in the [**Compose Script editor**](https://fast-compose.github.io/try/), or on CodePen: [Sound Wave](https://codepen.io/editor/ma7moud3ly/pen/01a191f5-6523-799c-81ed-a193e00bf1f2) ·
 [Travel Explorer](https://codepen.io/editor/ma7moud3ly/pen/01a1921f-0a2c-71e4-8e02-5a7de6fd32be) ·
 [Live Showcase](https://codepen.io/editor/ma7moud3ly/pen/01a191d9-c6a9-782f-a17c-9df79dc2063b)
 
-📦 [**fast-compose/compose-script**](https://github.com/fast-compose/compose-script)
-
-### <img src="https://raw.githubusercontent.com/fast-compose/intellij-plugin/main/docs/images/logo.png" height="36" align="absmiddle" alt=""> Android Studio Plugin
+### <img src="https://raw.githubusercontent.com/fast-compose/intellij-plugin/main/docs/images/logo.png" height="36" align="absmiddle" alt=""> [Android Studio Plugin](https://github.com/fast-compose/intellij-plugin)
 
 And I didn't forget the motherland: **Android Studio!**
 
 Building the **[Fast Compose Preview](https://plugins.jetbrains.com/plugin/35776-fast-compose-preview)** plugin was
 probably the biggest challenge, especially when I started testing it against real projects.
 
-It was fast and amazing, but I also realized that the Fast Compose engine still lacked a lot of functionality. That
-pushed me to release **v0.2.0** and continue improving it.
+It was fast and amazing, but I also realized that the Fast Compose engine still lacked a lot of functionality. Every
+real project I test reveals something new, and the engine keeps improving with each one.
 
 > **Settings → Plugins → Marketplace**, search for **Fast Compose Preview**, then open a Kotlin file with `@Preview`
 > functions.
 
-📦 [**fast-compose/intellij-plugin**](https://github.com/fast-compose/intellij-plugin)
-
-### <img src="https://raw.githubusercontent.com/fast-compose/vscode-extension/main/docs/images/logo.png" height="36" align="absmiddle" alt=""> VS Code Extension
+### <img src="https://raw.githubusercontent.com/fast-compose/vscode-extension/main/docs/images/logo.png" height="36" align="absmiddle" alt=""> [VS Code Extension](https://github.com/fast-compose/vscode-extension)
 
 The same instant previews in **VS Code**, running on the engine's WASM build. No JVM, no Gradle, no Android Studio.
 
@@ -197,14 +186,12 @@ The same instant previews in **VS Code**, running on the engine's WASM build. No
 > **Extensions** (Ctrl+Shift+X), search for **Fast Compose Preview**, then click **Preview** above a `@Preview`
 > function.
 
-📦 [**fast-compose/vscode-extension**](https://github.com/fast-compose/vscode-extension)
+### <img src="https://raw.githubusercontent.com/fast-compose/compose-cli/main/docs/images/logo.png" height="36" align="absmiddle" alt=""> [Fast Compose CLI](https://github.com/fast-compose/compose-cli)
 
-### <img src="https://raw.githubusercontent.com/fast-compose/compose-cli/main/docs/images/logo.png" height="36" align="absmiddle" alt=""> Fast Compose CLI
+Finally, on LinkedIn, I came across developers discussing the Android CLI and how they use it to render Compose UI
+from the command line.
 
-Finally, while surfing LinkedIn, I came across some enthusiastic developers discussing the Android CLI and how they use
-it to render Compose UI directly from the command line.
-
-**Heeeh, guys! Fast Compose can do it better and instantly!** 
+**I knew Fast Compose could do it instantly!**
 
 [![Release](https://img.shields.io/github/v/release/fast-compose/compose-cli?label=Release&color=6E56CF)](https://github.com/fast-compose/compose-cli/releases)
 
@@ -221,35 +208,29 @@ And it's an MCP server too, so AI agents can check the Compose code they write a
 claude mcp add --scope user fast-compose -- fast-compose mcp
 ```
 
-> Download the zip for Windows, macOS or Linux from the
-> [**releases**](https://github.com/fast-compose/compose-cli/releases). It brings its own Java runtime, so there's
-> nothing else to install.
-
-📦 [**fast-compose/compose-cli**](https://github.com/fast-compose/compose-cli)
-
 ---
 
-Yeah, that's how the Fast Compose project started.
+Yeah, that's how Fast Compose started.
 
-> ***But you used Claude Code to implement it! Where is the human part?!***
+> ***"But you built it with Claude Code! Where's the human part?"***
 
-I told you I hate Flutter! I don't like Kotlin Playground! I wanted to run Compose in the browser! I've struggled for
-years with outdated Compose previews! These are my problems, my frustrations, and my experience!
+Fair question! I've struggled for years with outdated Compose previews, and I wanted to run Compose in the browser.
+These are my problems, my frustrations and my experience, and they shaped every part of this project.
 
-Claude suggested the interpreter. Without Claude, there wouldn't have been an interpreter within a week! No doubt about
-that.
+Claude suggested the interpreter, and without Claude there wouldn't have been an interpreter within a week. No doubt
+about that. But every product came from a decision:
 
-- But I decided to build the playground, the KMP library, and the JetBrains plugin.
-- I asked Claude if Compose Script was possible while we were supporting wasmJs. He said yes! I literally jumped out of my chair.
-- I thought about a future WASM-based VS Code plugin. He agreed!
-- I thought the CLI would be cool. He said, why not an MCP server for AI agents too?
+- I decided to build the playground, the KMP library and the Android Studio plugin.
+- I asked if Compose Script was possible once we supported wasmJs. The answer was yes, and I literally jumped out of my
+  chair!
+- I planned a WASM-based VS Code extension.
+- I wanted a CLI, and Claude suggested making it an MCP server for AI agents too.
 
-I told him I love you man 😂
+That's the beauty of it! I bring the ideas, the experience and the direction, and I test the engine against real
+Android and KMP projects to find what's still missing. Claude helps me turn those ideas into working code, fast.
 
-That's the beauty of it! I bring the ideas, the experience, and the direction. Claude helps me execute my dreams.
-
-I'm really grateful for this idea. The results were incredibly motivating, and in just a few days, the project was
-ready to meet the world.
+The results were incredibly motivating, and in just a few days the project was ready to meet the world. Now the work
+continues: more Compose APIs, more real projects, and more ways to see your UI instantly.
 
 <div align="center">
 
@@ -261,9 +242,5 @@ ready to meet the world.
 
 [**Mahmoud Aly**](https://github.com/Ma7moud3ly)<br>
 <sub>5 November 2026</sub>
-
-<br>
-
-*Built with ❤️ and Kotlin*
 
 </div>
