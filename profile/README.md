@@ -236,6 +236,18 @@ continues: more Compose APIs, more real projects, and more ways to see your UI i
 
 ---
 
+## ❤️ Support Fast Compose
+
+Fast Compose is free and open source. If it saves you time, consider sponsoring it.
+
+[![GitHub Sponsors](https://img.shields.io/github/sponsors/Ma7moud3ly?logo=githubsponsors&label=Sponsor&color=EA4AAA)](https://github.com/sponsors/Ma7moud3ly)
+
+</div>
+
+<div align="center">
+
+---
+
 # 🎆 Remember, remember the Fifth of November!
 
 <br>
